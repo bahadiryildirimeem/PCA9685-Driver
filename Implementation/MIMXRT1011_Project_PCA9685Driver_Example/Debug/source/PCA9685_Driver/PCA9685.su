@@ -1,0 +1,13 @@
+PCA9685.c:51:6:PCA9685I2CWrite	24	static
+PCA9685.c:59:6:PCA9685I2CRead	24	static
+PCA9685.c:71:6:PCA9685Write8BitReg	24	static
+PCA9685.c:76:6:PCA9685Write16BitReg	24	static
+PCA9685.c:81:6:PCA9685WriteDataBlock	24	static
+PCA9685.c:86:6:PCA9685Read8BitReg	24	static
+PCA9685.c:91:6:PCA9685Read16BitReg	32	static
+PCA9685.c:98:6:PCA9685ReadDataBlock	24	static
+PCA9685.c:103:6:PCA9685Init	16	static
+PCA9685.c:119:6:PCA9685SetChannel	24	static
+PCA9685.c:135:6:PCA9685SetChannelsAsBlock	88	static
+PCA9685.c:167:10:PCA9685GetChannelVal	24	static
+PCA9685.c:181:6:PCA9685SetFrequency	32	static

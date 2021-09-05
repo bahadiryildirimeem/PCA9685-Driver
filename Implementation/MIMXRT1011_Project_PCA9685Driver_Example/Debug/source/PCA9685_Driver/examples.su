@@ -1,0 +1,6 @@
+examples.c:31:6:PCA9685KnightRiderInit	8	static
+examples.c:37:6:PCA9685KnightRiderRun	8	static
+examples.c:48:6:PCA9685BlockWriteInit	8	static
+examples.c:54:6:PCA9685BlockWriteRun	16	static
+examples.c:64:6:PCA9685FadingEffectInit	8	static
+examples.c:70:6:PCA9685FadingEffectRun	8	static

@@ -1,0 +1,2 @@
+board.c:48:6:BOARD_InitDebugConsole	4	static
+board.c:55:6:BOARD_ConfigMPU	4	static
