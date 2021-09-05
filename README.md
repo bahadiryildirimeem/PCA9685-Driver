@@ -11,7 +11,7 @@
  You can use this library in projects that uses to drive servo motors. You can see below the output frequency
  of channel that set to 50Hz.
  
- ![freqSet](https://user-images.githubusercontent.com/45585791/132137216-6c2a9e8b-055b-403d-814e-ec98708dfb4c.jpeg) =400x300
+ ![freqSet](https://user-images.githubusercontent.com/45585791/132137216-6c2a9e8b-055b-403d-814e-ec98708dfb4c.jpeg =400x300)
 
  
  When you found a bug please inform me.
