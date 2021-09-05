@@ -8,6 +8,12 @@
  NOTE: All PC9685s' configuration registers are same registers. If you want to configure every PCA9685 
  individually you need to change handle structure and init function. 
  
+ You can use this library in projects that uses to drive servo motors. You can see below the output frequency
+ of channel that set to 50Hz.
+ 
+ ![freqSet](https://user-images.githubusercontent.com/45585791/132137216-6c2a9e8b-055b-403d-814e-ec98708dfb4c.jpeg)
+
+ 
  When you found a bug please inform me.
  
  You can find implementation videos below links.
