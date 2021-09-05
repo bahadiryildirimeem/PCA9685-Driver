@@ -6,7 +6,9 @@
  PCA9685Init() function. There's no need extra configuration.
  
  NOTE: All PC9685s' configuration registers are same registers. If you want to configure every PCA9685 
- individually you need to change handle structure and init function. When you found a debug please inform me.
+ individually you need to change handle structure and init function. 
+ 
+ When you found a bug please inform me.
  
  You can find implementation videos below links.
 
