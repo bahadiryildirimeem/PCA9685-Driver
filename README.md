@@ -15,7 +15,7 @@
  
  When you found a bug please inform me.
  
- You can find implementation videos below links.
+ You can find implementation video links in below .
 
  Knight Rider: https://youtu.be/QMra_3z97tY
  Fading Effect: https://youtu.be/ZSCXXIH56JU
