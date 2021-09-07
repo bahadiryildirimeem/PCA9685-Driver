@@ -9,13 +9,13 @@
  * NOTE: All PC9685s' configuration registers are same registers. If
  * you want to configure every PCA9685 individually you need to change handle
  * structure and init function.\n
- * When you found a debug please inform me.\n
+ * When you found a bug please inform me.\n
  * @see https://github.com/bahadiryildirimeem
  *  You can access implementation videos below links.\n
  *  Knight Rider: \n
- *  @see https://youtu.be/QMra_3z97tY
+ *  @see https://youtu.be/QMra_3z97tY \n
  *  Fading Effect:\n
- *  @see https://youtu.be/ZSCXXIH56JU
+ *  @see https://youtu.be/ZSCXXIH56JU \n
  *
  */
 
@@ -146,7 +146,7 @@ void PCA9685ReadDataBlock(PCA9685Handle *param, uint8_t regAddr, uint8_t *buff, 
 	PCA9685I2CRead(param, regAddr, buff, length);
 }
 
-/** @brief Initialize the PCA9685 device.
+/** @brief Initializes the PCA9685 device.
  *  @param PCA9685 handle structure.
  *  @param Device address of PCA9685
  *  @param Initial PWM frequence.

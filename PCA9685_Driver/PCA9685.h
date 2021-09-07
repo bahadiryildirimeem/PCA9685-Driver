@@ -1,10 +1,8 @@
-/*
- * PCA9685.h
- *
- *  Created on: 8 Tem 2021
- *      Author: Bahadir
+/**
+ * @file PCA9685.h
+ * @author Bahadir Yildirim
+ * @date 5 Sep 2021
  */
-
 #ifndef PCA9685_DRIVER_PCA9685_H_
 #define PCA9685_DRIVER_PCA9685_H_
 

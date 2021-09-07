@@ -1,0 +1,509 @@
+\hypertarget{_p_c_a9685_8h}{}\doxysection{P\+C\+A9685.\+h File Reference}
+\label{_p_c_a9685_8h}\index{PCA9685.h@{PCA9685.h}}
+
+
+This module helps you to use P\+C\+A9685 easily. It was written as object oriented C approximation programming. So you can manage/create multiple P\+C\+A9685s. To creating a device, create \mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} type struct and call \mbox{\hyperlink{_p_c_a9685_8h_a9de03c3b463bbd60fa80c0156b98de82}{P\+C\+A9685\+Init()}} function. There\textquotesingle{}s no need extra configuration.~\newline
+~\newline
+N\+O\+TE\+: All P\+C9685s\textquotesingle{} configuration registers are same registers. If you want to configure every P\+C\+A9685 individually you need to change handle structure and init function.~\newline
+When you found a bug please inform me.~\newline
+.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}board.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}peripherals.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pin\+\_\+mux.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}clock\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}M\+I\+M\+X\+R\+T1011.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_p_c_a9685___m_o_d_e1___r_e_g___handle}{P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+Handle}}
+\item 
+union \mbox{\hyperlink{union_p_c_a9685___m_o_d_e2___r_e_g___handle}{P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+Handle}}
+\item 
+struct \mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_p_c_a9685_8h_a712c59786ae09893d0aeb5acd105558a}{P\+C\+A9685\+\_\+\+O\+S\+C\+\_\+\+F\+R\+EQ}}~25000000.\+0
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_acda50f4be918ad01e216170731db7180}\label{_p_c_a9685_8h_acda50f4be918ad01e216170731db7180}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+A\+D\+D\+R\+\_\+0}~0x40U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a18d2cbb7f2b6b86510a3133262c86880}\label{_p_c_a9685_8h_a18d2cbb7f2b6b86510a3133262c86880}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+A\+L\+L\+C\+A\+L\+L\+\_\+\+M\+A\+SK}~0x01U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_adfea3797246f752fa620c119a51d2b6e}\label{_p_c_a9685_8h_adfea3797246f752fa620c119a51d2b6e}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+S\+U\+B3\+\_\+\+M\+A\+SK}~0x02U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a9089d7d177ca2efc513258f69c916d2a}\label{_p_c_a9685_8h_a9089d7d177ca2efc513258f69c916d2a}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+S\+U\+B2\+\_\+\+M\+A\+SK}~0x04U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a6c26c00f9aab00c0227b3c2c1e9eb68d}\label{_p_c_a9685_8h_a6c26c00f9aab00c0227b3c2c1e9eb68d}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+S\+U\+B1\+\_\+\+M\+A\+SK}~0x08U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a2580894b75857e2f27d60c111d721d04}\label{_p_c_a9685_8h_a2580894b75857e2f27d60c111d721d04}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+S\+L\+E\+E\+P\+\_\+\+M\+A\+SK}~0x10U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a04d70146ccbe0713d87cf6a6a5ec316e}\label{_p_c_a9685_8h_a04d70146ccbe0713d87cf6a6a5ec316e}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+A\+I\+\_\+\+M\+A\+SK}~0x20U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ab583c96590c67b710dc3592bdd90be16}\label{_p_c_a9685_8h_ab583c96590c67b710dc3592bdd90be16}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+E\+X\+T\+C\+L\+K\+\_\+\+M\+A\+SK}~0x40U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a17dbc3c6d8aaae124cf481bb6bf556ee}\label{_p_c_a9685_8h_a17dbc3c6d8aaae124cf481bb6bf556ee}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+T\+A\+R\+T\+\_\+\+M\+A\+SK}~0x80U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a9a89c6aeda0d87c9c9e997dc8129459d}\label{_p_c_a9685_8h_a9a89c6aeda0d87c9c9e997dc8129459d}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+O\+U\+T\+N\+E\+\_\+\+B0\+\_\+\+M\+A\+SK}~0x01U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ad0852de138075ba787ced66b2a1aca94}\label{_p_c_a9685_8h_ad0852de138075ba787ced66b2a1aca94}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+O\+U\+T\+N\+E\+\_\+\+B1\+\_\+\+M\+A\+SK}~0x02U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_aad9654027b8afbada1a9521a52b7e382}\label{_p_c_a9685_8h_aad9654027b8afbada1a9521a52b7e382}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+O\+U\+T\+D\+R\+V\+\_\+\+M\+A\+SK}~0x04U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a39f2d10deaeebeb7be2506f912f35695}\label{_p_c_a9685_8h_a39f2d10deaeebeb7be2506f912f35695}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+O\+C\+H\+\_\+\+M\+A\+SK}~0x08U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a3302cca97e0c7a3a8400f97f2cec7797}\label{_p_c_a9685_8h_a3302cca97e0c7a3a8400f97f2cec7797}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+I\+N\+V\+R\+T\+\_\+\+M\+A\+SK}~0x10U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a05a6650af60e867c9a9ed01a3481e4f0}\label{_p_c_a9685_8h_a05a6650af60e867c9a9ed01a3481e4f0}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x00U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ac88b8d9c4ae3e248e3ac8ee93f92251a}\label{_p_c_a9685_8h_ac88b8d9c4ae3e248e3ac8ee93f92251a}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x01U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ab5de76019e2fca3589c22b01a519c775}\label{_p_c_a9685_8h_ab5de76019e2fca3589c22b01a519c775}} 
+\#define {\bfseries P\+A\+C9685\+\_\+\+A\+L\+L\+C\+A\+L\+L\+A\+D\+D\+R\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x05U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a22397948ef5e9e25d12f75fafb341a0a}\label{_p_c_a9685_8h_a22397948ef5e9e25d12f75fafb341a0a}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+P\+R\+E\+\_\+\+S\+C\+A\+L\+E\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x\+F\+EU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a6d61c6bfb3607df95b11349456857f2a}\label{_p_c_a9685_8h_a6d61c6bfb3607df95b11349456857f2a}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+A\+L\+L\+\_\+\+L\+E\+D\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x\+F\+AU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a09c1f9986c29a82600bcc8ab8e1b8111}\label{_p_c_a9685_8h_a09c1f9986c29a82600bcc8ab8e1b8111}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+A\+L\+L\+\_\+\+L\+E\+D\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x\+F\+BU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a97cc3faa5870d4497c2aab14134904c8}\label{_p_c_a9685_8h_a97cc3faa5870d4497c2aab14134904c8}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+A\+L\+L\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x\+F\+CU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a66d0189e59d10ea51da415aa3f9481f9}\label{_p_c_a9685_8h_a66d0189e59d10ea51da415aa3f9481f9}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+A\+L\+L\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x\+F\+DU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a871ea711723fe79915833e5d22d202fd}\label{_p_c_a9685_8h_a871ea711723fe79915833e5d22d202fd}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D0\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x06U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a48cf359bc8f5d028887199ab181bd171}\label{_p_c_a9685_8h_a48cf359bc8f5d028887199ab181bd171}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D0\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x07U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a12e03a7463abfd880fae4a91b784db95}\label{_p_c_a9685_8h_a12e03a7463abfd880fae4a91b784db95}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D0\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x08U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a811dbfb0bec32ddec06de3a2e3d3f420}\label{_p_c_a9685_8h_a811dbfb0bec32ddec06de3a2e3d3f420}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D0\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x09U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a3fbefe143304f4af30fc81641301f66c}\label{_p_c_a9685_8h_a3fbefe143304f4af30fc81641301f66c}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D1\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x0\+AU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_aa39634542fdb7a94ef89952077354b85}\label{_p_c_a9685_8h_aa39634542fdb7a94ef89952077354b85}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D1\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x0\+BU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_abedd7e19073cc82667796d19bbc1a294}\label{_p_c_a9685_8h_abedd7e19073cc82667796d19bbc1a294}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D1\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x0\+CU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_aa384ae0e3cf189668bee79a300b409c5}\label{_p_c_a9685_8h_aa384ae0e3cf189668bee79a300b409c5}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D1\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x0\+DU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_afcb804741158955a93c3ed7219de5a00}\label{_p_c_a9685_8h_afcb804741158955a93c3ed7219de5a00}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D2\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x0\+EU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a25e3383eac0c53506d81f55acb06efc5}\label{_p_c_a9685_8h_a25e3383eac0c53506d81f55acb06efc5}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D2\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x0\+FU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a8e114d9f5b999be7aadca0aea483139e}\label{_p_c_a9685_8h_a8e114d9f5b999be7aadca0aea483139e}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D2\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x10U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_adc190dd56a2bdb224ce24ca7f43bfbba}\label{_p_c_a9685_8h_adc190dd56a2bdb224ce24ca7f43bfbba}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D2\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x11U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_af6ef172f6560180e21c718e26a9f08b4}\label{_p_c_a9685_8h_af6ef172f6560180e21c718e26a9f08b4}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D3\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x12U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a6882e1c71a7a8c68a41ec6a417fc56fe}\label{_p_c_a9685_8h_a6882e1c71a7a8c68a41ec6a417fc56fe}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D3\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x13U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a345c6b3d5ccb614c77443deb0fd87ca7}\label{_p_c_a9685_8h_a345c6b3d5ccb614c77443deb0fd87ca7}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D3\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x14U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_af4969c64ec1f33fc084d4044f963b7fe}\label{_p_c_a9685_8h_af4969c64ec1f33fc084d4044f963b7fe}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D3\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x15U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_afd4712d8878471d78e8992cb86ae6efd}\label{_p_c_a9685_8h_afd4712d8878471d78e8992cb86ae6efd}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D4\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x16U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a4f1d8bdb272af768df22ad33bf63c6a0}\label{_p_c_a9685_8h_a4f1d8bdb272af768df22ad33bf63c6a0}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D4\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x17U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a0687ada8d7315792f50681df996d3dcf}\label{_p_c_a9685_8h_a0687ada8d7315792f50681df996d3dcf}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D4\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x18U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ab95d82d459965467285eff7239cf61e2}\label{_p_c_a9685_8h_ab95d82d459965467285eff7239cf61e2}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D4\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x19U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a484062292080d55734043ab2c67df141}\label{_p_c_a9685_8h_a484062292080d55734043ab2c67df141}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D5\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x1\+AU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a674d9f9666ad2bec45dc8bb52970069c}\label{_p_c_a9685_8h_a674d9f9666ad2bec45dc8bb52970069c}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D5\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x1\+BU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a9bb5c7ba3e64044c70e15e49368f3883}\label{_p_c_a9685_8h_a9bb5c7ba3e64044c70e15e49368f3883}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D5\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x1\+CU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ac612c5c4b72f37bcac43a3e6f02048a3}\label{_p_c_a9685_8h_ac612c5c4b72f37bcac43a3e6f02048a3}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D5\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x1\+DU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ae791207105943245e56dd69e783783fa}\label{_p_c_a9685_8h_ae791207105943245e56dd69e783783fa}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D6\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x1\+EU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a09fbd545b050a478f2d5712dac25a231}\label{_p_c_a9685_8h_a09fbd545b050a478f2d5712dac25a231}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D6\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x1\+FU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a6fa37545b323496b1bbf0a818f6b305f}\label{_p_c_a9685_8h_a6fa37545b323496b1bbf0a818f6b305f}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D6\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x20U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a29d77ce30c72bb1eb4f3739140c82651}\label{_p_c_a9685_8h_a29d77ce30c72bb1eb4f3739140c82651}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D6\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x21U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ac2c276feacd1e89609506f46c82cf20d}\label{_p_c_a9685_8h_ac2c276feacd1e89609506f46c82cf20d}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D7\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x22U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a52816310acaf462d02b745a50686483e}\label{_p_c_a9685_8h_a52816310acaf462d02b745a50686483e}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D7\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x23U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a092ed5612f0030ba5d5f6580cebe13c7}\label{_p_c_a9685_8h_a092ed5612f0030ba5d5f6580cebe13c7}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D7\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x24U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a4b0114a76a7cff71e0b4b366f3de7d35}\label{_p_c_a9685_8h_a4b0114a76a7cff71e0b4b366f3de7d35}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D7\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x25U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a4530d1ea0659e70e1252e930d07f38cf}\label{_p_c_a9685_8h_a4530d1ea0659e70e1252e930d07f38cf}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D8\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x26U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a50663881dbe791c4f47c99aeb0425a63}\label{_p_c_a9685_8h_a50663881dbe791c4f47c99aeb0425a63}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D8\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x27U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ac7733b91808e78d802b2590a4ffbfeac}\label{_p_c_a9685_8h_ac7733b91808e78d802b2590a4ffbfeac}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D8\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x28U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a5d557232e42f13d3a3dbbfbcb74c30f5}\label{_p_c_a9685_8h_a5d557232e42f13d3a3dbbfbcb74c30f5}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D8\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x29U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a0304a52532d06fba688bbc43779a859d}\label{_p_c_a9685_8h_a0304a52532d06fba688bbc43779a859d}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D9\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x2\+AU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a6f73554a13cfeaed67787c049a4acda2}\label{_p_c_a9685_8h_a6f73554a13cfeaed67787c049a4acda2}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D9\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x2\+BU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a187cf0a5c05c0cfd4f51aacca91bd9f0}\label{_p_c_a9685_8h_a187cf0a5c05c0cfd4f51aacca91bd9f0}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D9\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x2\+CU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ac54d0f74686306310ca0270f5c7d093d}\label{_p_c_a9685_8h_ac54d0f74686306310ca0270f5c7d093d}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D9\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x2\+DU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ad63ba01358d5676a5069969688875f11}\label{_p_c_a9685_8h_ad63ba01358d5676a5069969688875f11}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D10\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x2\+EU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a0c621a58b301c1c7065216352ef50122}\label{_p_c_a9685_8h_a0c621a58b301c1c7065216352ef50122}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D10\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x2\+FU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_adb9d5b122da6466149bd30e6874529b9}\label{_p_c_a9685_8h_adb9d5b122da6466149bd30e6874529b9}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D10\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x30U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a84818b8486e16de58d8cec2883945307}\label{_p_c_a9685_8h_a84818b8486e16de58d8cec2883945307}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D10\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x31U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a1cbd6845474a88781e8458ce4acb64c3}\label{_p_c_a9685_8h_a1cbd6845474a88781e8458ce4acb64c3}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D11\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x32U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ac0b90d867ece11e450f83eb7076dc2a7}\label{_p_c_a9685_8h_ac0b90d867ece11e450f83eb7076dc2a7}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D11\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x33U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_aec8a9df8e9bb1659bbe79e9abad331c2}\label{_p_c_a9685_8h_aec8a9df8e9bb1659bbe79e9abad331c2}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D11\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x34U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ae2eb9087edbd68fc3b3acc4fa0ca3ddc}\label{_p_c_a9685_8h_ae2eb9087edbd68fc3b3acc4fa0ca3ddc}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D11\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x35U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ada32320a5455b7f334e68559e5ecd409}\label{_p_c_a9685_8h_ada32320a5455b7f334e68559e5ecd409}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D12\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x36U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a746504b12e64ae0cf6118b0aa54bbad6}\label{_p_c_a9685_8h_a746504b12e64ae0cf6118b0aa54bbad6}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D12\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x37U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_aae1deeac4bcf2f8d3240db98ea0b17cc}\label{_p_c_a9685_8h_aae1deeac4bcf2f8d3240db98ea0b17cc}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D12\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x38U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_af0397ff13562f0f43f83514eea8742d4}\label{_p_c_a9685_8h_af0397ff13562f0f43f83514eea8742d4}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D12\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x39U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a356aa4c6ad08793f455230a8b6ad10cf}\label{_p_c_a9685_8h_a356aa4c6ad08793f455230a8b6ad10cf}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D13\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x3\+AU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ae5eab228db6eb05df4b9113064466f4f}\label{_p_c_a9685_8h_ae5eab228db6eb05df4b9113064466f4f}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D13\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x3\+BU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ae94011d14a9fef277872b43f92dac970}\label{_p_c_a9685_8h_ae94011d14a9fef277872b43f92dac970}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D13\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x3\+CU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a086e6bc505e2748ba7febbfc814702d1}\label{_p_c_a9685_8h_a086e6bc505e2748ba7febbfc814702d1}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D13\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x3\+DU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a073f702e96ce802d53cf26d5b403e374}\label{_p_c_a9685_8h_a073f702e96ce802d53cf26d5b403e374}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D14\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x3\+EU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ae9a63233195518604d614f097e3722ab}\label{_p_c_a9685_8h_ae9a63233195518604d614f097e3722ab}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D14\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x3\+FU
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ab7bbcb4fd311296271ef39007308580a}\label{_p_c_a9685_8h_ab7bbcb4fd311296271ef39007308580a}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D14\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x40U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a40dbc544584ab30402d3bdba30391c75}\label{_p_c_a9685_8h_a40dbc544584ab30402d3bdba30391c75}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D14\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x41U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a96ea1611ac11acba1cd795584ce05b2d}\label{_p_c_a9685_8h_a96ea1611ac11acba1cd795584ce05b2d}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D15\+\_\+\+O\+N\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x42U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ac0ce2769d5626dfe57392ce103e94fdb}\label{_p_c_a9685_8h_ac0ce2769d5626dfe57392ce103e94fdb}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D15\+\_\+\+O\+N\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x43U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a92f3bd2db7bfff2c2a5c6590160e3382}\label{_p_c_a9685_8h_a92f3bd2db7bfff2c2a5c6590160e3382}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D15\+\_\+\+O\+F\+F\+\_\+\+L\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x44U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_afaa7a02035e3745a7c7e4e215dd8b4c9}\label{_p_c_a9685_8h_afaa7a02035e3745a7c7e4e215dd8b4c9}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+L\+E\+D15\+\_\+\+O\+F\+F\+\_\+\+H\+\_\+\+R\+E\+G\+\_\+\+A\+D\+DR}~0x45U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a1ba87bda7906013d4d7f7be97ff63f0b}\label{_p_c_a9685_8h_a1ba87bda7906013d4d7f7be97ff63f0b}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+A\+X\+\_\+\+P\+R\+E\+\_\+\+S\+C\+A\+L\+E\+\_\+\+V\+AL}~0x03U
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_af577497ebabdec5e1ede797999430594}\label{_p_c_a9685_8h_af577497ebabdec5e1ede797999430594}} 
+\#define {\bfseries P\+C\+A9685\+\_\+\+M\+I\+N\+\_\+\+P\+R\+E\+\_\+\+S\+C\+A\+L\+E\+\_\+\+V\+AL}~0x03U
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{_p_c_a9685_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
+enum \{ \newline
+{\bfseries E\+X\+A\+M\+P\+L\+E\+\_\+\+K\+N\+I\+G\+H\+T\+\_\+\+R\+I\+D\+ER} = 0, 
+{\bfseries E\+X\+A\+M\+P\+L\+E\+\_\+\+B\+L\+O\+C\+K\+\_\+\+W\+R\+I\+TE}, 
+{\bfseries E\+X\+A\+M\+P\+L\+E\+\_\+\+F\+A\+D\+I\+N\+G\+\_\+\+E\+F\+F\+E\+CT}, 
+{\bfseries N\+O\+F\+\_\+\+E\+X\+A\+M\+P\+L\+ES}, 
+\newline
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+0} = 0, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+1}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+2}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+3}, 
+\newline
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+4}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+5}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+6}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+7}, 
+\newline
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+8}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+9}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+10}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+11}, 
+\newline
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+12}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+13}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+14}, 
+{\bfseries P\+C\+A9685\+\_\+\+L\+E\+D\+\_\+\+O\+U\+T\+\_\+15}, 
+\newline
+{\bfseries P\+C\+A9685\+\_\+\+N\+O\+F\+\_\+\+L\+E\+DS}
+ \}
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_adf764cbdea00d65edcd07bb9953ad2b7}\label{_p_c_a9685_8h_adf764cbdea00d65edcd07bb9953ad2b7}} 
+enum \{ {\bfseries P\+C\+A9685\+\_\+\+I2\+C\+\_\+\+W\+I\+R\+TE} = 0, 
+{\bfseries P\+C\+A9685\+\_\+\+I2\+C\+\_\+\+R\+E\+AD}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_c_a9685_8h_a9de03c3b463bbd60fa80c0156b98de82}{P\+C\+A9685\+Init}} (\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$param, uint8\+\_\+t dev\+Addr, uint16\+\_\+t pwm\+Freq)
+\begin{DoxyCompactList}\small\item\em Initializes the P\+C\+A9685 device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_c_a9685_8h_ab8be017c314852330b070ebf6491b55d}{P\+C\+A9685\+Set\+Frequency}} (\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$param, uint16\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Sets P\+WM frequency to P\+C\+A9685. The frequency setting interval is between 24Hz and 1526Hz. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_c_a9685_8h_a92a0460e841e2bca773343a738168f2a}{P\+C\+A9685\+Set\+Channel}} (\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$param, uint8\+\_\+t ch\+No, uint16\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Sets channel\textquotesingle{}s P\+WM value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_c_a9685_8h_aff5e67d7adc21f3618efc1605bb023c3}{P\+C\+A9685\+Set\+Channels\+As\+Block}} (\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$param, uint8\+\_\+t first\+Ch\+No, uint8\+\_\+t second\+Ch\+No)
+\begin{DoxyCompactList}\small\item\em Sets channels to P\+WM values at the same data writing sequence. so it improves loop time. You should be assign new P\+WM values to pwm\+Vals array before the call this function. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{_p_c_a9685_8h_afeca021340c75af5d7e91577afb0b0cb}{P\+C\+A9685\+Get\+Channel\+Val}} (\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$param, uint8\+\_\+t ch\+No)
+\begin{DoxyCompactList}\small\item\em Gets channel value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_ae295c411035ad0f91150e5da1131d30b}\label{_p_c_a9685_8h_ae295c411035ad0f91150e5da1131d30b}} 
+\mbox{\hyperlink{union_p_c_a9685___m_o_d_e1___r_e_g___handle}{P\+C\+A9685\+\_\+\+M\+O\+D\+E1\+\_\+\+R\+E\+G\+\_\+\+Handle}} \mbox{\hyperlink{_p_c_a9685_8h_ae295c411035ad0f91150e5da1131d30b}{P\+C\+A9685\+Mode1\+Reg}}
+\begin{DoxyCompactList}\small\item\em Assigning initial values to configuration registers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_abbdf75613b5f2a2b9964dab9fa25b71e}\label{_p_c_a9685_8h_abbdf75613b5f2a2b9964dab9fa25b71e}} 
+\mbox{\hyperlink{union_p_c_a9685___m_o_d_e2___r_e_g___handle}{P\+C\+A9685\+\_\+\+M\+O\+D\+E2\+\_\+\+R\+E\+G\+\_\+\+Handle}} {\bfseries P\+C\+A9685\+Mode2\+Reg}
+\item 
+\mbox{\Hypertarget{_p_c_a9685_8h_a674d707f9f0b7b34cf725a080fa81981}\label{_p_c_a9685_8h_a674d707f9f0b7b34cf725a080fa81981}} 
+\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} \mbox{\hyperlink{_p_c_a9685_8h_a674d707f9f0b7b34cf725a080fa81981}{P\+C\+A9685\+Attr}}
+\begin{DoxyCompactList}\small\item\em Creating P\+C\+A9685 device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module helps you to use P\+C\+A9685 easily. It was written as object oriented C approximation programming. So you can manage/create multiple P\+C\+A9685s. To creating a device, create \mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} type struct and call \mbox{\hyperlink{_p_c_a9685_8h_a9de03c3b463bbd60fa80c0156b98de82}{P\+C\+A9685\+Init()}} function. There\textquotesingle{}s no need extra configuration.~\newline
+~\newline
+N\+O\+TE\+: All P\+C9685s\textquotesingle{} configuration registers are same registers. If you want to configure every P\+C\+A9685 individually you need to change handle structure and init function.~\newline
+When you found a bug please inform me.~\newline
+. 
+
+\begin{DoxyAuthor}{Author}
+Bahadir Yildirim 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+5 Sep 2021 
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\href{https://github.com/bahadiryildirimeem}{\texttt{ https\+://github.\+com/bahadiryildirimeem}} You can access implementation videos below links.~\newline
+ Knight Rider\+: ~\newline
+ 
+
+\href{https://youtu.be/QMra_3z97tY}{\texttt{ https\+://youtu.\+be/\+Q\+Mra\+\_\+3z97tY}} ~\newline
+ Fading Effect\+:~\newline
+ 
+
+\href{https://youtu.be/ZSCXXIH56JU}{\texttt{ https\+://youtu.\+be/\+Z\+S\+C\+X\+X\+I\+H56\+JU}} ~\newline
+ 
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Bahadir Yildirim 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+5 Sep 2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_p_c_a9685_8h_a712c59786ae09893d0aeb5acd105558a}\label{_p_c_a9685_8h_a712c59786ae09893d0aeb5acd105558a}} 
+\index{PCA9685.h@{PCA9685.h}!PCA9685\_OSC\_FREQ@{PCA9685\_OSC\_FREQ}}
+\index{PCA9685\_OSC\_FREQ@{PCA9685\_OSC\_FREQ}!PCA9685.h@{PCA9685.h}}
+\doxysubsubsection{\texorpdfstring{PCA9685\_OSC\_FREQ}{PCA9685\_OSC\_FREQ}}
+{\footnotesize\ttfamily \#define P\+C\+A9685\+\_\+\+O\+S\+C\+\_\+\+F\+R\+EQ~25000000.\+0}
+
+Included libraries at the below is belong to implementation that runs in eval board. You can delete this and add your own implementation libraries. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_p_c_a9685_8h_afeca021340c75af5d7e91577afb0b0cb}\label{_p_c_a9685_8h_afeca021340c75af5d7e91577afb0b0cb}} 
+\index{PCA9685.h@{PCA9685.h}!PCA9685GetChannelVal@{PCA9685GetChannelVal}}
+\index{PCA9685GetChannelVal@{PCA9685GetChannelVal}!PCA9685.h@{PCA9685.h}}
+\doxysubsubsection{\texorpdfstring{PCA9685GetChannelVal()}{PCA9685GetChannelVal()}}
+{\footnotesize\ttfamily uint16\+\_\+t P\+C\+A9685\+Get\+Channel\+Val (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$}]{param,  }\item[{uint8\+\_\+t}]{ch\+No }\end{DoxyParamCaption})}
+
+
+
+Gets channel value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P\+C\+A9685} & handle structure. \\
+\hline
+{\em Channel} & no. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Channel value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_p_c_a9685_8h_a9de03c3b463bbd60fa80c0156b98de82}\label{_p_c_a9685_8h_a9de03c3b463bbd60fa80c0156b98de82}} 
+\index{PCA9685.h@{PCA9685.h}!PCA9685Init@{PCA9685Init}}
+\index{PCA9685Init@{PCA9685Init}!PCA9685.h@{PCA9685.h}}
+\doxysubsubsection{\texorpdfstring{PCA9685Init()}{PCA9685Init()}}
+{\footnotesize\ttfamily void P\+C\+A9685\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$}]{param,  }\item[{uint8\+\_\+t}]{dev\+Addr,  }\item[{uint16\+\_\+t}]{pwm\+Freq }\end{DoxyParamCaption})}
+
+
+
+Initializes the P\+C\+A9685 device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P\+C\+A9685} & handle structure. \\
+\hline
+{\em Device} & address of P\+C\+A9685 \\
+\hline
+{\em Initial} & P\+WM frequence. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_p_c_a9685_8h_a92a0460e841e2bca773343a738168f2a}\label{_p_c_a9685_8h_a92a0460e841e2bca773343a738168f2a}} 
+\index{PCA9685.h@{PCA9685.h}!PCA9685SetChannel@{PCA9685SetChannel}}
+\index{PCA9685SetChannel@{PCA9685SetChannel}!PCA9685.h@{PCA9685.h}}
+\doxysubsubsection{\texorpdfstring{PCA9685SetChannel()}{PCA9685SetChannel()}}
+{\footnotesize\ttfamily void P\+C\+A9685\+Set\+Channel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$}]{param,  }\item[{uint8\+\_\+t}]{ch\+No,  }\item[{uint16\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Sets channel\textquotesingle{}s P\+WM value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P\+C\+A9685} & handle structure. \\
+\hline
+{\em Channel} & no. \\
+\hline
+{\em P\+WM} & value of channel that passed as ch\+No. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_p_c_a9685_8h_aff5e67d7adc21f3618efc1605bb023c3}\label{_p_c_a9685_8h_aff5e67d7adc21f3618efc1605bb023c3}} 
+\index{PCA9685.h@{PCA9685.h}!PCA9685SetChannelsAsBlock@{PCA9685SetChannelsAsBlock}}
+\index{PCA9685SetChannelsAsBlock@{PCA9685SetChannelsAsBlock}!PCA9685.h@{PCA9685.h}}
+\doxysubsubsection{\texorpdfstring{PCA9685SetChannelsAsBlock()}{PCA9685SetChannelsAsBlock()}}
+{\footnotesize\ttfamily void P\+C\+A9685\+Set\+Channels\+As\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$}]{param,  }\item[{uint8\+\_\+t}]{first\+Ch\+No,  }\item[{uint8\+\_\+t}]{second\+Ch\+No }\end{DoxyParamCaption})}
+
+
+
+Sets channels to P\+WM values at the same data writing sequence. so it improves loop time. You should be assign new P\+WM values to pwm\+Vals array before the call this function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P\+C\+A9685} & handle structure. \\
+\hline
+{\em First} & channel no. \\
+\hline
+{\em Second} & channel no. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_p_c_a9685_8h_ab8be017c314852330b070ebf6491b55d}\label{_p_c_a9685_8h_ab8be017c314852330b070ebf6491b55d}} 
+\index{PCA9685.h@{PCA9685.h}!PCA9685SetFrequency@{PCA9685SetFrequency}}
+\index{PCA9685SetFrequency@{PCA9685SetFrequency}!PCA9685.h@{PCA9685.h}}
+\doxysubsubsection{\texorpdfstring{PCA9685SetFrequency()}{PCA9685SetFrequency()}}
+{\footnotesize\ttfamily void P\+C\+A9685\+Set\+Frequency (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_c_a9685_handle}{P\+C\+A9685\+Handle}} $\ast$}]{param,  }\item[{uint16\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+Sets P\+WM frequency to P\+C\+A9685. The frequency setting interval is between 24Hz and 1526Hz. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P\+C\+A9685} & handle structure. \\
+\hline
+{\em Frequency} & value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void. 
+\end{DoxyReturn}
